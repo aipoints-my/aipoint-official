@@ -3,458 +3,92 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AIPOINT | Smart Customer Loyalty Point System</title>
+<title>AIPOINT | Smart Customer Loyalty System</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f7f9ff;color:#101428;line-height:1.6}
+a{text-decoration:none}
+.container{width:min(1180px,92%);margin:auto}
 
-html{
-  scroll-behavior:smooth;
-}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid #e6e9ff}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{display:flex;align-items:center;gap:12px;font-size:30px;font-weight:900}
+.logo-icon{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#009dff,#8b2cff);color:white;display:flex;align-items:center;justify-content:center;font-weight:900}
+.logo-text{background:linear-gradient(135deg,#009dff,#8b2cff);-webkit-background-clip:text;color:transparent}
+.lang button{border:0;margin-left:6px;padding:9px 14px;border-radius:999px;font-weight:800;cursor:pointer;background:#edf1ff;color:#1e1b4b}
+.lang button.active{background:linear-gradient(135deg,#009dff,#8b2cff);color:white}
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f7f9ff;
-  color:#101428;
-  line-height:1.6;
-}
+.hero{padding:95px 0 75px;background:radial-gradient(circle at top right,#dcd4ff,transparent 35%),linear-gradient(180deg,#fff,#f3f6ff)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.badge{display:inline-block;background:#eef2ff;color:#5b21b6;padding:9px 18px;border-radius:999px;font-weight:900;margin-bottom:18px}
+h1{font-size:58px;line-height:1.05;margin-bottom:22px;color:#10152f}
+h1 strong{background:linear-gradient(135deg,#009dff,#8b2cff);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:20px;color:#4b5563;margin-bottom:28px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 24px;border-radius:16px;font-weight:900;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:linear-gradient(135deg,#009dff,#8b2cff);color:white;box-shadow:0 14px 32px rgba(91,44,255,.3)}
+.btn-light{background:white;color:#111827;border:1px solid #dfe3ff}
+.btn-dark{background:#111827;color:white}
 
-a{
-  text-decoration:none;
-}
+.mockup{background:white;border-radius:30px;padding:24px;box-shadow:0 28px 70px rgba(29,40,120,.13);border:1px solid #e7eaff}
+.screen{border-radius:24px;background:linear-gradient(135deg,#101a4e,#24104d);padding:28px;color:white}
+.screen h2{margin-bottom:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.stat{background:white;color:#111827;border-radius:16px;padding:14px;text-align:center}
+.stat b{font-size:24px;color:#6d28d9}
 
-.container{
-  width:min(1180px,92%);
-  margin:auto;
-}
+section{padding:78px 0}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title h2{font-size:40px;color:#10152f;margin-bottom:10px}
+.section-title p{font-size:18px;color:#64748b}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border-radius:24px;padding:28px;border:1px solid #e7eaff;box-shadow:0 16px 38px rgba(30,42,120,.06)}
+.icon{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#009dff,#8b2cff);color:white;font-size:28px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card h3{font-size:22px;margin-bottom:10px;color:#111827}
+.card p{color:#64748b}
 
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(255,255,255,0.94);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid #e6e9ff;
-}
+.dark-section{background:#10152f;color:white}
+.dark-section .section-title h2{color:white}
+.dark-section .section-title p{color:#c7d2fe}
+.dark-section .card{background:#161d3f;border-color:#27316b;color:white}
+.dark-section .card h3{color:white}
+.dark-section .card p{color:#c7d2fe}
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 0;
-}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{background:white;border-radius:24px;padding:30px;border:1px solid #e7eaff;min-height:230px}
+.dark-section .step{background:white;color:#111827}
+.step-number{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#009dff,#8b2cff);color:white;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:30px;
-  font-weight:900;
-}
+.price-box{background:linear-gradient(135deg,#009dff,#8b2cff);color:white;border-radius:36px;padding:52px;text-align:center;box-shadow:0 24px 70px rgba(109,40,217,.35)}
+.price{font-size:88px;font-weight:900;line-height:1;margin:15px 0}
+.price-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0}
+.price-tags span{background:rgba(255,255,255,.18);padding:10px 18px;border-radius:999px;font-weight:800}
 
-.logo-icon{
-  width:48px;
-  height:48px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
+.industry-list{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.industry{background:white;border:1px solid #e7eaff;border-radius:18px;padding:18px;text-align:center;font-weight:900}
 
-.logo-text{
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+.faq{max-width:900px;margin:auto}
+.faq-item{background:white;border:1px solid #e7eaff;border-radius:18px;padding:22px;margin-bottom:14px}
+.faq-item h3{margin-bottom:6px;color:#111827}
+.faq-item p{color:#64748b}
 
-.lang button{
-  border:0;
-  margin-left:6px;
-  padding:9px 14px;
-  border-radius:999px;
-  font-weight:800;
-  cursor:pointer;
-  background:#edf1ff;
-  color:#1e1b4b;
-}
-
-.lang button.active{
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-}
-
-.hero{
-  padding:95px 0 75px;
-  background:
-  radial-gradient(circle at top right,#dcd4ff,transparent 35%),
-  linear-gradient(180deg,#ffffff,#f3f6ff);
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:46px;
-  align-items:center;
-}
-
-.badge{
-  display:inline-block;
-  background:#eef2ff;
-  color:#5b21b6;
-  padding:9px 18px;
-  border-radius:999px;
-  font-weight:900;
-  margin-bottom:18px;
-}
-
-h1{
-  font-size:58px;
-  line-height:1.05;
-  margin-bottom:22px;
-  color:#10152f;
-}
-
-h1 strong{
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  font-size:20px;
-  color:#4b5563;
-  margin-bottom:28px;
-}
-
-.buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:15px 24px;
-  border-radius:16px;
-  font-weight:900;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-.btn-primary{
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-  box-shadow:0 14px 32px rgba(91,44,255,.3);
-}
-
-.btn-light{
-  background:white;
-  color:#111827;
-  border:1px solid #dfe3ff;
-}
-
-.btn-dark{
-  background:#111827;
-  color:white;
-}
-
-.mockup{
-  background:white;
-  border-radius:30px;
-  padding:24px;
-  box-shadow:0 28px 70px rgba(29,40,120,.13);
-  border:1px solid #e7eaff;
-}
-
-.screen{
-  border-radius:24px;
-  background:linear-gradient(135deg,#101a4e,#24104d);
-  padding:28px;
-  color:white;
-}
-
-.screen h2{
-  margin-bottom:10px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:22px;
-}
-
-.stat{
-  background:white;
-  color:#111827;
-  border-radius:16px;
-  padding:14px;
-  text-align:center;
-}
-
-.stat b{
-  font-size:24px;
-  color:#6d28d9;
-}
-
-section{
-  padding:78px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:42px;
-}
-
-.section-title h2{
-  font-size:40px;
-  color:#10152f;
-  margin-bottom:10px;
-}
-
-.section-title p{
-  font-size:18px;
-  color:#64748b;
-}
-
-.grid-2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:24px;
-}
-
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.grid-4{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.card{
-  background:white;
-  border-radius:24px;
-  padding:28px;
-  border:1px solid #e7eaff;
-  box-shadow:0 16px 38px rgba(30,42,120,.06);
-}
-
-.icon{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-  font-size:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:18px;
-}
-
-.card h3{
-  font-size:22px;
-  margin-bottom:10px;
-  color:#111827;
-}
-
-.card p{
-  color:#64748b;
-}
-
-.dark-section{
-  background:#10152f;
-  color:white;
-}
-
-.dark-section .section-title h2{
-  color:white;
-}
-
-.dark-section .section-title p{
-  color:#c7d2fe;
-}
-
-.dark-section .card{
-  background:#161d3f;
-  border-color:#27316b;
-  color:white;
-}
-
-.dark-section .card h3{
-  color:white;
-}
-
-.dark-section .card p{
-  color:#c7d2fe;
-}
-
-.process{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.step{
-  background:white;
-  border-radius:22px;
-  padding:25px;
-  border:1px solid #e7eaff;
-}
-
-.step-number{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:14px;
-}
-
-.price-box{
-  background:linear-gradient(135deg,#009dff,#8b2cff);
-  color:white;
-  border-radius:36px;
-  padding:52px;
-  text-align:center;
-  box-shadow:0 24px 70px rgba(109,40,217,.35);
-}
-
-.price{
-  font-size:88px;
-  font-weight:900;
-  line-height:1;
-  margin:15px 0;
-}
-
-.price-tags{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:26px 0;
-}
-
-.price-tags span{
-  background:rgba(255,255,255,.18);
-  padding:10px 18px;
-  border-radius:999px;
-  font-weight:800;
-}
-
-.industry-list{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-}
-
-.industry{
-  background:white;
-  border:1px solid #e7eaff;
-  border-radius:18px;
-  padding:18px;
-  text-align:center;
-  font-weight:900;
-}
-
-.faq{
-  max-width:900px;
-  margin:auto;
-}
-
-.faq-item{
-  background:white;
-  border:1px solid #e7eaff;
-  border-radius:18px;
-  padding:22px;
-  margin-bottom:14px;
-}
-
-.faq-item h3{
-  margin-bottom:6px;
-  color:#111827;
-}
-
-.faq-item p{
-  color:#64748b;
-}
-
-.cta{
-  background:#080b1d;
-  color:white;
-  text-align:center;
-  padding:80px 0;
-}
-
-.cta h2{
-  font-size:42px;
-  margin-bottom:14px;
-}
-
-.cta p{
-  color:#c7d2fe;
-  font-size:18px;
-  margin-bottom:28px;
-}
-
-footer{
-  text-align:center;
-  background:#050713;
-  color:#c7d2fe;
-  padding:25px;
-}
+.cta{background:#080b1d;color:white;text-align:center;padding:80px 0}
+.cta h2{font-size:42px;margin-bottom:14px}
+.cta p{color:#c7d2fe;font-size:18px;margin-bottom:28px}
+footer{text-align:center;background:#050713;color:#c7d2fe;padding:25px}
 
 @media(max-width:900px){
-  .nav{
-    flex-direction:column;
-    gap:14px;
-  }
-
-  .hero-grid,
-  .grid-2,
-  .grid-3,
-  .grid-4,
-  .process{
-    grid-template-columns:1fr;
-  }
-
-  .industry-list{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  h1{
-    font-size:42px;
-  }
-
-  .section-title h2{
-    font-size:32px;
-  }
-
-  .price{
-    font-size:68px;
-  }
-
-  .stats{
-    grid-template-columns:1fr;
-  }
+.nav{flex-direction:column;gap:14px}
+.hero-grid,.grid-3,.grid-4,.process{grid-template-columns:1fr}
+.industry-list{grid-template-columns:repeat(2,1fr)}
+h1{font-size:42px}
+.section-title h2{font-size:32px}
+.price{font-size:68px}
+.stats{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -463,18 +97,16 @@ footer{
 
 <header>
 <div class="container nav">
-
 <div class="logo">
-  <div class="logo-icon">ap</div>
-  <div class="logo-text">aipoint</div>
+<div class="logo-icon">ap</div>
+<div class="logo-text">aipoint</div>
 </div>
 
 <div class="lang">
-  <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
-  <button onclick="setLang('zh')" id="btn-zh">中文</button>
-  <button onclick="setLang('ms')" id="btn-ms">BM</button>
+<button onclick="setLang('en')" id="btn-en" class="active">EN</button>
+<button onclick="setLang('zh')" id="btn-zh">中文</button>
+<button onclick="setLang('ms')" id="btn-ms">BM</button>
 </div>
-
 </div>
 </header>
 
@@ -482,39 +114,33 @@ footer{
 <div class="container hero-grid">
 
 <div>
-  <div class="badge" data-i18n="badge">Point • Reward • Loyalty System</div>
+<div class="badge" data-i18n="badge">Point • Reward • Loyalty System</div>
 
-  <h1 data-i18n="heroTitle">
-    Turn One-Time Customers Into <strong>Repeat Customers</strong>
-  </h1>
+<h1 data-i18n="heroTitle">
+Turn One-Time Customers Into <strong>Repeat Customers</strong>
+</h1>
 
-  <p data-i18n="heroText">
-    AIPOINT is a simple customer loyalty point system built for small businesses.
-    Let customers collect points, redeem rewards, and come back more often.
-  </p>
+<p data-i18n="heroText">
+AIPOINT is a simple loyalty point system for small businesses. Customers register by phone number, staff can add or deduct points, and business owners can send WhatsApp messages for points updates and promotions.
+</p>
 
-  <div class="buttons">
-    <a class="btn btn-primary" href="https://wa.me/60197110010" target="_blank" data-i18n="whatsapp">
-      WhatsApp Now
-    </a>
-
-    <a class="btn btn-light" href="https://aipoints-my.github.io/demo-aipoint/" target="_blank" data-i18n="tryDemo">
-      Try Live Demo
-    </a>
-  </div>
+<div class="buttons">
+<a class="btn btn-primary" href="https://wa.me/60197110010" target="_blank" data-i18n="whatsapp">WhatsApp Now</a>
+<a class="btn btn-light" href="https://aipoints-my.github.io/demo-aipoint/" target="_blank" data-i18n="tryDemo">Try Live Demo</a>
+</div>
 </div>
 
 <div class="mockup">
-  <div class="screen">
-    <h2>AIPOINT Dashboard</h2>
-    <p data-i18n="dashboardText">Easy control for boss, staff and customers.</p>
+<div class="screen">
+<h2>AIPOINT Dashboard</h2>
+<p data-i18n="dashboardText">Simple control for boss, staff and customers.</p>
 
-    <div class="stats">
-      <div class="stat"><b>1,268</b><br><span data-i18n="members">Members</span></div>
-      <div class="stat"><b>35,680</b><br><span data-i18n="points">Points</span></div>
-      <div class="stat"><b>18,540</b><br><span data-i18n="redeemed">Redeemed</span></div>
-    </div>
-  </div>
+<div class="stats">
+<div class="stat"><b>1,268</b><br><span data-i18n="members">Members</span></div>
+<div class="stat"><b>35,680</b><br><span data-i18n="points">Points</span></div>
+<div class="stat"><b>18,540</b><br><span data-i18n="redeemed">Redeemed</span></div>
+</div>
+</div>
 </div>
 
 </div>
@@ -524,243 +150,131 @@ footer{
 <div class="container">
 
 <div class="section-title">
-  <h2 data-i18n="painTitle">Problems Many Small Businesses Face</h2>
-  <p data-i18n="painSub">
-    Many shops lose repeat customers because they do not have a simple and clear loyalty system.
-  </p>
+<h2 data-i18n="painTitle">Problems Many Small Businesses Face</h2>
+<p data-i18n="painSub">Many shops lose repeat customers because customer records, points and promotions are not managed clearly.</p>
 </div>
 
 <div class="grid-3">
-
 <div class="card">
-  <div class="icon">🧾</div>
-  <h3 data-i18n="pain1Title">Manual Records Are Messy</h3>
-  <p data-i18n="pain1Text">
-    Paper cards, notebooks and WhatsApp records are easy to lose, hard to check and difficult to manage.
-  </p>
+<div class="icon">📞</div>
+<h3 data-i18n="pain1Title">Customer Data Is Not Organized</h3>
+<p data-i18n="pain1Text">Many businesses only keep customer contact in WhatsApp, paper or memory. It becomes hard to search, follow up and build membership.</p>
 </div>
 
 <div class="card">
-  <div class="icon">🔁</div>
-  <h3 data-i18n="pain2Title">Customers Forget To Return</h3>
-  <p data-i18n="pain2Text">
-    Without points or rewards, customers have less reason to come back to your shop again.
-  </p>
+<div class="icon">🧾</div>
+<h3 data-i18n="pain2Title">Point Records Are Messy</h3>
+<p data-i18n="pain2Text">Manual calculation can cause missed points, wrong deductions, repeated records and staff mistakes.</p>
 </div>
 
 <div class="card">
-  <div class="icon">💸</div>
-  <h3 data-i18n="pain3Title">Most Systems Are Too Expensive</h3>
-  <p data-i18n="pain3Text">
-    Many loyalty systems require monthly fees, setup fees or complicated POS integration.
-  </p>
+<div class="icon">📢</div>
+<h3 data-i18n="pain3Title">Hard To Inform Customers</h3>
+<p data-i18n="pain3Text">Without a proper system, it is difficult to remind customers about their points, rewards and latest promotions.</p>
+</div>
 </div>
 
-</div>
 </div>
 </section>
 <section class="dark-section">
 <div class="container">
 
 <div class="section-title">
-  <h2 data-i18n="featureTitle">What AIPOINT Can Do</h2>
-  <p data-i18n="featureSub">
-    A complete but simple loyalty system for daily business use.
-  </p>
-</div>
-
-<div class="grid-3">
-
-<div class="card">
-  <div class="icon">👑</div>
-  <h3 data-i18n="f1Title">Boss Admin Panel</h3>
-  <p data-i18n="f1Text">
-    Boss can manage customers, check points, edit information,
-    monitor staff activity and control the entire system easily.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">👨‍💼</div>
-  <h3 data-i18n="f2Title">Staff Access</h3>
-  <p data-i18n="f2Text">
-    Staff can quickly help customers add points, search members
-    and manage daily customer loyalty operations.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">📱</div>
-  <h3 data-i18n="f3Title">Customer Point View</h3>
-  <p data-i18n="f3Text">
-    Customers can clearly check their points and rewards,
-    making the loyalty experience more professional.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">🌐</div>
-  <h3 data-i18n="f4Title">3 Language Support</h3>
-  <p data-i18n="f4Text">
-    Supports English, 中文 and Bahasa Melayu,
-    suitable for Malaysian businesses and customers.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">🎨</div>
-  <h3 data-i18n="f5Title">Custom Branding</h3>
-  <p data-i18n="f5Text">
-    Upload your own logo and background image
-    to make the system look like your own company platform.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">💬</div>
-  <h3 data-i18n="f6Title">WhatsApp Friendly</h3>
-  <p data-i18n="f6Text">
-    Contact customers directly through WhatsApp to update points,
-    promotions or reward information.
-  </p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<div class="section-title">
-  <h2 data-i18n="advantageTitle">Why AIPOINT Is More Convenient</h2>
-  <p data-i18n="advantageSub">
-    Designed for real small business operation, not complicated software.
-  </p>
-</div>
-
-<div class="grid-4">
-
-<div class="card">
-  <div class="icon">⚡</div>
-  <h3 data-i18n="a1Title">Fast To Use</h3>
-  <p data-i18n="a1Text">
-    Staff can quickly add or check customer points during payment
-    without slowing down counter operations.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">📲</div>
-  <h3 data-i18n="a2Title">Mobile Friendly</h3>
-  <p data-i18n="a2Text">
-    Use on phone, tablet or computer.
-    No complicated installation needed.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">☁️</div>
-  <h3 data-i18n="a3Title">Cloud Based</h3>
-  <p data-i18n="a3Text">
-    Access the system anywhere with internet connection.
-    No expensive server needed.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">🔐</div>
-  <h3 data-i18n="a4Title">Separate Login</h3>
-  <p data-i18n="a4Text">
-    Boss and staff can use different access permissions,
-    making management safer and more organized.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">📊</div>
-  <h3 data-i18n="a5Title">Clear Customer Records</h3>
-  <p data-i18n="a5Text">
-    Customer points and redemption records are stored clearly
-    and easier to manage than paper methods.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">💰</div>
-  <h3 data-i18n="a6Title">Affordable</h3>
-  <p data-i18n="a6Text">
-    Most systems charge monthly fees.
-    AIPOINT only requires one-time payment.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">🎓</div>
-  <h3 data-i18n="a7Title">Easy Staff Training</h3>
-  <p data-i18n="a7Text">
-    The system is designed to be simple and easy to understand,
-    reducing staff training time.
-  </p>
-</div>
-
-<div class="card">
-  <div class="icon">🚀</div>
-  <h3 data-i18n="a8Title">No POS Required</h3>
-  <p data-i18n="a8Text">
-    You do not need expensive POS systems or advanced technical setup.
-  </p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="dark-section">
-<div class="container">
-
-<div class="section-title">
-  <h2 data-i18n="processTitle">How The System Works</h2>
-  <p data-i18n="processSub">
-    Simple customer loyalty flow for daily business operation.
-  </p>
+<h2 data-i18n="howTitle">How The System Works</h2>
+<p data-i18n="howSub">Simple loyalty workflow for daily business operation.</p>
 </div>
 
 <div class="process">
 
 <div class="step">
-  <div class="step-number">1</div>
-  <h3 data-i18n="s1Title">Customer Purchase</h3>
-  <p data-i18n="s1Text">
-    Customer buys products or services from your business.
-  </p>
+<div class="step-number">1</div>
+<h3 data-i18n="step1Title">Customer Registers Phone Number</h3>
+<p data-i18n="step1Text">
+Customers only need to register using their phone number. No complicated app installation or login required.
+</p>
 </div>
 
 <div class="step">
-  <div class="step-number">2</div>
-  <h3 data-i18n="s2Title">Staff Add Points</h3>
-  <p data-i18n="s2Text">
-    Staff enters customer information and adds points immediately.
-  </p>
+<div class="step-number">2</div>
+<h3 data-i18n="step2Title">Staff Add Or Deduct Points</h3>
+<p data-i18n="step2Text">
+Employees can quickly record purchases, add points or redeem rewards in just a few clicks during checkout.
+</p>
 </div>
 
 <div class="step">
-  <div class="step-number">3</div>
-  <h3 data-i18n="s3Title">Customer Collects Points</h3>
-  <p data-i18n="s3Text">
-    Customers continue collecting points after every purchase.
-  </p>
-</div>
-
-<div class="step">
-  <div class="step-number">4</div>
-  <h3 data-i18n="s4Title">Reward Redemption</h3>
-  <p data-i18n="s4Text">
-    Customers redeem rewards and become repeat customers.
-  </p>
+<div class="step-number">3</div>
+<h3 data-i18n="step3Title">Boss Sends Promotions & Point Updates</h3>
+<p data-i18n="step3Text">
+Business owners can send WhatsApp messages to customers about remaining points, rewards and latest promotions.
+</p>
 </div>
 
 </div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="whyTitle">Why Businesses Choose AIPOINT</h2>
+<p data-i18n="whySub">Designed for small businesses that want a simple and powerful loyalty solution.</p>
+</div>
+
+<div class="grid-4">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3 data-i18n="feature1Title">Simple & Fast</h3>
+<p data-i18n="feature1Text">Easy to learn and easy to use for bosses and staff. No technical skill required.</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3 data-i18n="feature2Title">One-Time Payment</h3>
+<p data-i18n="feature2Text">Pay once only. No monthly fees, no hidden charges and no subscription pressure.</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3 data-i18n="feature3Title">Increase Repeat Sales</h3>
+<p data-i18n="feature3Text">Points and rewards motivate customers to return and buy more frequently.</p>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3 data-i18n="feature4Title">Works On Phone & PC</h3>
+<p data-i18n="feature4Text">Use the system on mobile phones, tablets or computers anytime and anywhere.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3 data-i18n="feature5Title">Easy Customer Tracking</h3>
+<p data-i18n="feature5Text">Search members quickly using phone number and track all customer point history.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎁</div>
+<h3 data-i18n="feature6Title">Reward Redemption</h3>
+<p data-i18n="feature6Text">Customers can use accumulated points to redeem gifts, vouchers or promotions.</p>
+</div>
+
+<div class="card">
+<div class="icon">📣</div>
+<h3 data-i18n="feature7Title">Promotion Broadcasting</h3>
+<p data-i18n="feature7Text">Send promotional WhatsApp messages to customers to increase traffic and awareness.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔒</div>
+<h3 data-i18n="feature8Title">Your Data, Your Business</h3>
+<p data-i18n="feature8Text">All customer information belongs to your business and stays under your control.</p>
+</div>
+
+</div>
+
 </div>
 </section>
 
@@ -769,557 +283,344 @@ footer{
 
 <div class="price-box">
 
-<h2 data-i18n="priceTitle">
-Affordable For Small Businesses
-</h2>
+<h3 data-i18n="priceSmall">Affordable For Small Businesses</h3>
 
-<div class="price">
-RM499
-</div>
-
-<p data-i18n="priceSub">
-One-Time Payment • No Monthly Fee • No Hidden Charges
-</p>
+<div class="price">RM499</div>
 
 <div class="price-tags">
-  <span data-i18n="p1">One-Time Payment</span>
-  <span data-i18n="p2">No Monthly Fees</span>
-  <span data-i18n="p3">Lifetime Use</span>
-  <span data-i18n="p4">Easy Setup</span>
+<span data-i18n="tag1">One-Time Payment</span>
+<span data-i18n="tag2">Lifetime Use</span>
+<span data-i18n="tag3">No Monthly Fee</span>
 </div>
 
-<div class="buttons" style="justify-content:center">
+<p data-i18n="priceText">
+AIPOINT is designed to help small businesses start customer loyalty systems without expensive software subscriptions.
+</p>
 
-<a class="btn btn-light"
-href="https://wa.me/60197110010"
-target="_blank"
-data-i18n="startNow">
-Start Now
-</a>
+<br>
 
-<a class="btn btn-dark"
-href="https://aipoints-my.github.io/demo-aipoint/"
-target="_blank"
-data-i18n="demoButton">
-Try Demo
+<a href="https://wa.me/60197110010" target="_blank" class="btn btn-dark" data-i18n="contactBtn">
+Contact Us On WhatsApp
 </a>
 
 </div>
 
 </div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2 data-i18n="industryTitle">Perfect For</h2>
+<p data-i18n="industrySub">Suitable for many kinds of small and medium businesses.</p>
+</div>
+
+<div class="industry-list">
+
+<div class="industry">☕ Cafe</div>
+<div class="industry">🧋 Bubble Tea</div>
+<div class="industry">🍰 Bakery</div>
+<div class="industry">🍽 Restaurant</div>
+<div class="industry">🛍 Retail Shop</div>
+
+<div class="industry">💇 Beauty Salon</div>
+<div class="industry">🐾 Pet Shop</div>
+<div class="industry">🏋 Gym</div>
+<div class="industry">🍍 Fruit Shop</div>
+<div class="industry">🛒 Grocery</div>
+
+</div>
+
 </div>
 </section>
 <section>
 <div class="container">
 
 <div class="section-title">
-  <h2 data-i18n="industryTitle">Suitable For Many Businesses</h2>
-  <p data-i18n="industrySub">
-    Any business that wants more repeat customers can use AIPOINT.
-  </p>
+<h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+<p data-i18n="faqSub">Simple answers for business owners.</p>
 </div>
 
-<div class="industry-list">
+<div class="faq">
 
-<div class="industry" data-i18n="i1">Cafe</div>
-<div class="industry" data-i18n="i2">Bubble Tea</div>
-<div class="industry" data-i18n="i3">Bakery</div>
-<div class="industry" data-i18n="i4">Restaurant</div>
-<div class="industry" data-i18n="i5">Retail Shop</div>
-
-<div class="industry" data-i18n="i6">Beauty Salon</div>
-<div class="industry" data-i18n="i7">Pet Shop</div>
-<div class="industry" data-i18n="i8">Fruit Shop</div>
-<div class="industry" data-i18n="i9">Car Wash</div>
-<div class="industry" data-i18n="i10">Mini Market</div>
-
-</div>
-</div>
-</section>
-
-<section>
-<div class="container faq">
-
-<div class="section-title">
-  <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+<div class="faq-item">
+<h3 data-i18n="faq1Title">Do customers need to install an app?</h3>
+<p data-i18n="faq1Text">No. Customers only need their phone number to register and collect points.</p>
 </div>
 
 <div class="faq-item">
-  <h3 data-i18n="q1">Do I need to pay monthly?</h3>
-  <p data-i18n="a1">
-    No. AIPOINT is RM499 one-time payment only.
-    No hidden monthly charges.
-  </p>
+<h3 data-i18n="faq2Title">Can staff use it easily?</h3>
+<p data-i18n="faq2Text">Yes. The system is designed for daily operation with simple buttons and easy navigation.</p>
 </div>
 
 <div class="faq-item">
-  <h3 data-i18n="q2">Can customers try the system?</h3>
-  <p data-i18n="a2">
-    Yes. Customers and business owners can directly test the live demo system.
-  </p>
+<h3 data-i18n="faq3Title">Is there a monthly fee?</h3>
+<p data-i18n="faq3Text">No monthly commitment. One-time payment only.</p>
 </div>
 
 <div class="faq-item">
-  <h3 data-i18n="q3">Can I use my own logo?</h3>
-  <p data-i18n="a3">
-    Yes. You can upload your own logo and background image.
-  </p>
+<h3 data-i18n="faq4Title">Can I use it on mobile phone?</h3>
+<p data-i18n="faq4Text">Yes. It works on smartphones, tablets and desktop computers.</p>
 </div>
 
-<div class="faq-item">
-  <h3 data-i18n="q4">Can staff use the system?</h3>
-  <p data-i18n="a4">
-    Yes. Staff can help customers add points and check customer information.
-  </p>
-</div>
-
-<div class="faq-item">
-  <h3 data-i18n="q5">Do I need a POS system?</h3>
-  <p data-i18n="a5">
-    No. AIPOINT works independently and does not require expensive POS setup.
-  </p>
-</div>
-
-<div class="faq-item">
-  <h3 data-i18n="q6">Is it mobile friendly?</h3>
-  <p data-i18n="a6">
-    Yes. It works on phones, tablets and computers.
-  </p>
 </div>
 
 </div>
 </section>
 
 <section class="cta">
-
 <div class="container">
 
-<h2 data-i18n="ctaTitle">
-Ready To Build Customer Loyalty?
-</h2>
+<h2 data-i18n="ctaTitle">Start Building Customer Loyalty Today</h2>
 
 <p data-i18n="ctaText">
-Start increasing repeat customers today with AIPOINT.
+Turn normal customers into repeat customers using a simple and affordable loyalty system.
 </p>
 
 <div class="buttons" style="justify-content:center">
-
-<a class="btn btn-primary"
-href="https://wa.me/60197110010"
-target="_blank"
-data-i18n="ctaWhatsapp">
-WhatsApp Now
+<a class="btn btn-primary" href="https://wa.me/60197110010" target="_blank">
+WhatsApp 019-7110010
 </a>
 
-<a class="btn btn-light"
-href="https://aipoints-my.github.io/demo-aipoint/"
-target="_blank"
-data-i18n="ctaDemo">
-Open Demo
+<a class="btn btn-light" href="https://aipoints-my.github.io/demo-aipoint/" target="_blank">
+Live Demo
 </a>
-
 </div>
 
 </div>
 </section>
 
 <footer>
-© 2026 AIPOINT • Point • Reward • Loyalty System
+© 2026 AIPOINT.MY • POINT • REWARD • LOYALTY
 </footer>
 
 <script>
 
 const translations = {
 
-en:{
+en: {
 
 badge:"Point • Reward • Loyalty System",
-
 heroTitle:"Turn One-Time Customers Into <strong>Repeat Customers</strong>",
-
-heroText:"AIPOINT is a simple customer loyalty point system built for small businesses. Let customers collect points, redeem rewards, and come back more often.",
-
+heroText:"AIPOINT is a simple loyalty point system for small businesses. Customers register by phone number, staff can add or deduct points, and business owners can send WhatsApp messages for points updates and promotions.",
 whatsapp:"WhatsApp Now",
-
 tryDemo:"Try Live Demo",
-
-dashboardText:"Easy control for boss, staff and customers.",
-
+dashboardText:"Simple control for boss, staff and customers.",
 members:"Members",
-
 points:"Points",
-
 redeemed:"Redeemed",
 
 painTitle:"Problems Many Small Businesses Face",
-
-painSub:"Many shops lose repeat customers because they do not have a simple and clear loyalty system.",
-
-pain1Title:"Manual Records Are Messy",
-
-pain1Text:"Paper cards, notebooks and WhatsApp records are easy to lose, hard to check and difficult to manage.",
-
-pain2Title:"Customers Forget To Return",
-
-pain2Text:"Without points or rewards, customers have less reason to come back to your shop again.",
-
-pain3Title:"Most Systems Are Too Expensive",
-
-pain3Text:"Many loyalty systems require monthly fees, setup fees or complicated POS integration.",
-
-featureTitle:"What AIPOINT Can Do",
-
-featureSub:"A complete but simple loyalty system for daily business use.",
-
-f1Title:"Boss Admin Panel",
-
-f1Text:"Boss can manage customers, check points, edit information, monitor staff activity and control the entire system easily.",
-
-f2Title:"Staff Access",
-
-f2Text:"Staff can quickly help customers add points, search members and manage daily customer loyalty operations.",
-
-f3Title:"Customer Point View",
-
-f3Text:"Customers can clearly check their points and rewards, making the loyalty experience more professional.",
-
-f4Title:"3 Language Support",
-
-f4Text:"Supports English, 中文 and Bahasa Melayu, suitable for Malaysian businesses and customers.",
-
-f5Title:"Custom Branding",
-
-f5Text:"Upload your own logo and background image to make the system look like your own company platform.",
-
-f6Title:"WhatsApp Friendly",
-
-f6Text:"Contact customers directly through WhatsApp to update points, promotions or reward information.",
-
-advantageTitle:"Why AIPOINT Is More Convenient",
-
-advantageSub:"Designed for real small business operation, not complicated software.",
-
-a1Title:"Fast To Use",
-
-a1Text:"Staff can quickly add or check customer points during payment without slowing down counter operations.",
-
-a2Title:"Mobile Friendly",
-
-a2Text:"Use on phone, tablet or computer. No complicated installation needed.",
-
-a3Title:"Cloud Based",
-
-a3Text:"Access the system anywhere with internet connection. No expensive server needed.",
-
-a4Title:"Separate Login",
-
-a4Text:"Boss and staff can use different access permissions, making management safer and more organized.",
-
-a5Title:"Clear Customer Records",
-
-a5Text:"Customer points and redemption records are stored clearly and easier to manage than paper methods.",
-
-a6Title:"Affordable",
-
-a6Text:"Most systems charge monthly fees. AIPOINT only requires one-time payment.",
-
-a7Title:"Easy Staff Training",
-
-a7Text:"The system is designed to be simple and easy to understand, reducing staff training time.",
-
-a8Title:"No POS Required",
-
-a8Text:"You do not need expensive POS systems or advanced technical setup.",
-
-processTitle:"How The System Works",
-
-processSub:"Simple customer loyalty flow for daily business operation.",
-
-s1Title:"Customer Purchase",
-
-s1Text:"Customer buys products or services from your business.",
-
-s2Title:"Staff Add Points",
-
-s2Text:"Staff enters customer information and adds points immediately.",
-
-s3Title:"Customer Collects Points",
-
-s3Text:"Customers continue collecting points after every purchase.",
-
-s4Title:"Reward Redemption",
-
-s4Text:"Customers redeem rewards and become repeat customers.",
-
-priceTitle:"Affordable For Small Businesses",
-
-priceSub:"One-Time Payment • No Monthly Fee • No Hidden Charges",
-
-p1:"One-Time Payment",
-
-p2:"No Monthly Fees",
-
-p3:"Lifetime Use",
-
-p4:"Easy Setup",
-
-startNow:"Start Now",
-
-demoButton:"Try Demo",
-
-industryTitle:"Suitable For Many Businesses",
-
-industrySub:"Any business that wants more repeat customers can use AIPOINT.",
-
-i1:"Cafe",
-
-i2:"Bubble Tea",
-
-i3:"Bakery",
-
-i4:"Restaurant",
-
-i5:"Retail Shop",
-
-i6:"Beauty Salon",
-
-i7:"Pet Shop",
-
-i8:"Fruit Shop",
-
-i9:"Car Wash",
-
-i10:"Mini Market",
+painSub:"Many shops lose repeat customers because customer records, points and promotions are not managed clearly.",
+pain1Title:"Customer Data Is Not Organized",
+pain1Text:"Many businesses only keep customer contact in WhatsApp, paper or memory.",
+pain2Title:"Point Records Are Messy",
+pain2Text:"Manual calculation can cause wrong records and staff mistakes.",
+pain3Title:"Hard To Inform Customers",
+pain3Text:"Without a proper system, promotions and reminders are difficult.",
+
+howTitle:"How The System Works",
+howSub:"Simple loyalty workflow for daily business operation.",
+step1Title:"Customer Registers Phone Number",
+step1Text:"Customers only need to register using their phone number.",
+step2Title:"Staff Add Or Deduct Points",
+step2Text:"Employees can quickly record purchases and update points.",
+step3Title:"Boss Sends Promotions & Point Updates",
+step3Text:"Send WhatsApp promotions and point notifications easily.",
+
+whyTitle:"Why Businesses Choose AIPOINT",
+whySub:"Designed for small businesses.",
+feature1Title:"Simple & Fast",
+feature1Text:"Easy for bosses and staff.",
+feature2Title:"One-Time Payment",
+feature2Text:"No monthly fee or hidden charges.",
+feature3Title:"Increase Repeat Sales",
+feature3Text:"Customers return more often.",
+feature4Title:"Works On Phone & PC",
+feature4Text:"Use anywhere anytime.",
+feature5Title:"Easy Customer Tracking",
+feature5Text:"Track customer point history easily.",
+feature6Title:"Reward Redemption",
+feature6Text:"Redeem gifts and rewards.",
+feature7Title:"Promotion Broadcasting",
+feature7Text:"Send promotions through WhatsApp.",
+feature8Title:"Your Data, Your Business",
+feature8Text:"Customer data stays with you.",
+
+priceSmall:"Affordable For Small Businesses",
+tag1:"One-Time Payment",
+tag2:"Lifetime Use",
+tag3:"No Monthly Fee",
+priceText:"Simple and affordable loyalty system.",
+contactBtn:"Contact Us On WhatsApp",
+
+industryTitle:"Perfect For",
+industrySub:"Suitable for many businesses.",
 
 faqTitle:"Frequently Asked Questions",
+faqSub:"Simple answers for business owners.",
+faq1Title:"Do customers need to install an app?",
+faq1Text:"No. Only phone number registration is needed.",
+faq2Title:"Can staff use it easily?",
+faq2Text:"Yes. Very simple interface.",
+faq3Title:"Is there a monthly fee?",
+faq3Text:"No monthly commitment.",
+faq4Title:"Can I use it on mobile phone?",
+faq4Text:"Yes. Mobile and desktop supported.",
 
-q1:"Do I need to pay monthly?",
-
-a1:"No. AIPOINT is RM499 one-time payment only. No hidden monthly charges.",
-
-q2:"Can customers try the system?",
-
-a2:"Yes. Customers and business owners can directly test the live demo system.",
-
-q3:"Can I use my own logo?",
-
-a3:"Yes. You can upload your own logo and background image.",
-
-q4:"Can staff use the system?",
-
-a4:"Yes. Staff can help customers add points and check customer information.",
-
-q5:"Do I need a POS system?",
-
-a5:"No. AIPOINT works independently and does not require expensive POS setup.",
-
-q6:"Is it mobile friendly?",
-
-a6:"Yes. It works on phones, tablets and computers.",
-
-ctaTitle:"Ready To Build Customer Loyalty?",
-
-ctaText:"Start increasing repeat customers today with AIPOINT.",
-
-ctaWhatsapp:"WhatsApp Now",
-
-ctaDemo:"Open Demo"
+ctaTitle:"Start Building Customer Loyalty Today",
+ctaText:"Build repeat customers using AIPOINT."
 
 },
 
-zh:{
+zh: {
 
-badge:"积分 • 奖励 • 顾客忠诚系统",
-
-heroTitle:"把一次性顾客变成 <strong>回头客</strong>",
-
-heroText:"AIPOINT 是专为小商家打造的简单会员积分系统，让顾客累积分数、兑换奖励，并提高再次消费机会。",
-
-whatsapp:"WhatsApp 询问",
-
-tryDemo:"体验 Demo",
-
-dashboardText:"老板、员工、顾客都容易使用。",
-
-members:"会员",
-
+badge:"积分 • 奖励 • 会员系统",
+heroTitle:"把一次性顾客变成 <strong>长期回头客</strong>",
+heroText:"AIPOINT 是专为中小企业设计的积分会员系统。顾客只需电话号码即可注册，员工可快速加减分，老板还能一键发送 WhatsApp 促销与积分通知。",
+whatsapp:"WhatsApp 联系",
+tryDemo:"立即体验 Demo",
+dashboardText:"简单管理老板、员工与顾客。",
+members:"会员人数",
 points:"积分",
-
 redeemed:"已兑换",
 
-painTitle:"许多小商家面对的问题",
-
-painSub:"很多商家流失回头客，是因为没有简单清楚的积分系统。",
-
-pain1Title:"手写记录很混乱",
-
-pain1Text:"纸卡、簿子和 WhatsApp 记录容易遗失，也很难查询和管理。",
-
-pain2Title:"顾客忘记回来",
-
-pain2Text:"如果没有积分和奖励，顾客就少了再次回来消费的理由。",
-
-pain3Title:"很多系统太贵",
-
-pain3Text:"很多会员系统需要月费、设定费，或者复杂的 POS 整合。",
-
-featureTitle:"AIPOINT 可以做到什么",
-
-featureSub:"完整但简单，适合日常店铺操作。",
-
-f1Title:"老板后台",
-
-f1Text:"老板可以管理顾客、查看积分、更改资料、监控员工和控制系统。",
-
-f2Title:"员工权限",
-
-f2Text:"员工可以快速帮顾客加分、查询会员和处理日常积分操作。",
-
-f3Title:"顾客积分查看",
-
-f3Text:"顾客可以清楚看到自己的积分和奖励，让会员体验更专业。",
-
-f4Title:"三语言支持",
-
-f4Text:"支持 English、中文和 Bahasa Melayu，适合马来西亚商家。",
-
-f5Title:"品牌自定义",
-
-f5Text:"可以上传自己的 Logo 和背景图，让系统像自己的品牌平台。",
-
-f6Title:"WhatsApp 方便联系",
-
-f6Text:"可以直接通过 WhatsApp 联络顾客，通知积分、优惠和奖励。",
-
-advantageTitle:"为什么 AIPOINT 更方便",
-
-advantageSub:"专为真实小商家操作设计，而不是复杂软件。",
-
-a1Title:"使用速度快",
-
-a1Text:"员工可以在付款时快速帮顾客加分，不会拖慢柜台。",
-
-a2Title:"手机也能使用",
-
-a2Text:"手机、平板、电脑都可以使用，不需要复杂安装。",
-
-a3Title:"云端系统",
-
-a3Text:"有网络就能使用，不需要昂贵服务器。",
-
-a4Title:"分开登录",
-
-a4Text:"老板和员工可以使用不同权限，管理更安全。",
-
-a5Title:"顾客记录清楚",
-
-a5Text:"顾客积分和兑换记录比纸本方式更容易管理。",
-
-a6Title:"价格便宜",
-
-a6Text:"大部分系统都有月费，而 AIPOINT 只需一次性付款。",
-
-a7Title:"员工容易学习",
-
-a7Text:"系统简单容易明白，可以减少培训时间。",
-
-a8Title:"不需要 POS",
-
-a8Text:"不需要昂贵 POS 系统或复杂技术设定。",
-
-processTitle:"系统如何操作",
-
-processSub:"简单的顾客积分流程。",
-
-s1Title:"顾客消费",
-
-s1Text:"顾客在你的店购买产品或服务。",
-
-s2Title:"员工加分",
-
-s2Text:"员工输入顾客资料并立即加入积分。",
-
-s3Title:"顾客累积积分",
-
-s3Text:"顾客每次消费后继续累积分数。",
-
-s4Title:"兑换奖励",
-
-s4Text:"顾客兑换奖励后，会更愿意再次回来。",
-
-priceTitle:"小商家也负担得起",
-
-priceSub:"一次性付款 • 没有月费 • 没有隐藏收费",
-
-p1:"一次性付款",
-
-p2:"没有月费",
-
-p3:"永久使用",
-
-p4:"容易设定",
-
-startNow:"马上开始",
-
-demoButton:"体验 Demo",
-
-industryTitle:"适合多种行业",
-
-industrySub:"只要你想增加回头客，都适合使用 AIPOINT。",
-
-i1:"咖啡店",
-
-i2:"奶茶店",
-
-i3:"烘焙店",
-
-i4:"餐厅",
-
-i5:"零售店",
-
-i6:"美容院",
-
-i7:"宠物店",
-
-i8:"水果店",
-
-i9:"洗车店",
-
-i10:"迷你市场",
+painTitle:"很多中小企业面对的问题",
+painSub:"很多商家因为没有系统化管理顾客与积分，而失去回头客。",
+pain1Title:"顾客资料混乱",
+pain1Text:"顾客资料常常记录在纸张、WhatsApp 或脑海里。",
+pain2Title:"积分容易出错",
+pain2Text:"人工计算容易出现遗漏、错误或重复记录。",
+pain3Title:"难以通知顾客",
+pain3Text:"没有系统就很难通知顾客积分与促销。",
+
+howTitle:"系统如何运作",
+howSub:"简单容易上手的积分流程。",
+step1Title:"顾客登记电话号码",
+step1Text:"顾客只需电话号码即可成为会员。",
+step2Title:"员工记录或回扣分数",
+step2Text:"员工可以快速帮顾客增加或扣除积分。",
+step3Title:"老板发送促销与积分通知",
+step3Text:"老板可以通过 WhatsApp 一键发送促销与积分通知。",
+
+whyTitle:"为什么选择 AIPOINT",
+whySub:"专为中小企业打造。",
+feature1Title:"简单快速",
+feature1Text:"老板与员工都容易使用。",
+feature2Title:"一次性付款",
+feature2Text:"没有月费与隐藏收费。",
+feature3Title:"增加回头率",
+feature3Text:"积分让顾客更愿意回来消费。",
+feature4Title:"手机电脑都能使用",
+feature4Text:"随时随地管理。",
+feature5Title:"顾客管理方便",
+feature5Text:"轻松查询会员资料。",
+feature6Title:"奖励兑换",
+feature6Text:"顾客可兑换礼品与优惠。",
+feature7Title:"促销广播",
+feature7Text:"通过 WhatsApp 发送促销。",
+feature8Title:"资料属于你",
+feature8Text:"顾客资料完全属于你的生意。",
+
+priceSmall:"中小企业也负担得起",
+tag1:"一次性付款",
+tag2:"永久使用",
+tag3:"没有月费",
+priceText:"简单又便宜的会员积分系统。",
+contactBtn:"WhatsApp 联系我们",
+
+industryTitle:"适合行业",
+industrySub:"适用于各种行业。",
 
 faqTitle:"常见问题",
+faqSub:"简单回答。",
+faq1Title:"顾客需要下载 App 吗？",
+faq1Text:"不需要，只需电话号码。",
+faq2Title:"员工容易学吗？",
+faq2Text:"非常简单容易。",
+faq3Title:"有月费吗？",
+faq3Text:"没有月费。",
+faq4Title:"手机可以使用吗？",
+faq4Text:"支持手机与电脑。",
 
-q1:"需要每个月付费吗？",
+ctaTitle:"今天开始建立顾客忠诚度",
+ctaText:"使用 AIPOINT 建立长期回头客。"
 
-a1:"不需要。AIPOINT 是 RM499 一次性付款，没有隐藏收费。",
+},
 
-q2:"顾客可以试用系统吗？",
+ms: {
 
-a2:"可以。顾客和商家老板都可以直接测试 Live Demo。",
+badge:"Sistem Mata • Ganjaran • Loyalti",
+heroTitle:"Tukar Pelanggan Biasa Menjadi <strong>Pelanggan Tetap</strong>",
+heroText:"AIPOINT ialah sistem loyalti mudah untuk perniagaan kecil. Pelanggan daftar menggunakan nombor telefon, pekerja boleh tambah atau tolak mata, dan bos boleh hantar promosi WhatsApp.",
+whatsapp:"Hubungi WhatsApp",
+tryDemo:"Cuba Demo",
+dashboardText:"Pengurusan mudah untuk bos, pekerja dan pelanggan.",
+members:"Ahli",
+points:"Mata",
+redeemed:"Ditebus",
 
-q3:"可以放自己的 Logo 吗？",
+painTitle:"Masalah Perniagaan Kecil",
+painSub:"Ramai peniaga kehilangan pelanggan tetap kerana tiada sistem loyalti yang teratur.",
+pain1Title:"Data Pelanggan Tidak Teratur",
+pain1Text:"Maklumat pelanggan disimpan dalam WhatsApp atau kertas.",
+pain2Title:"Rekod Mata Tidak Tepat",
+pain2Text:"Kiraan manual mudah berlaku kesilapan.",
+pain3Title:"Susah Hantar Promosi",
+pain3Text:"Promosi dan pemberitahuan sukar dihantar tanpa sistem.",
 
-a3:"可以。系统支持上传 Logo 和背景图片。",
+howTitle:"Cara Sistem Berfungsi",
+howSub:"Aliran loyalti yang mudah digunakan.",
+step1Title:"Pelanggan Daftar Nombor Telefon",
+step1Text:"Pelanggan hanya perlu nombor telefon untuk daftar.",
+step2Title:"Pekerja Tambah atau Tolak Mata",
+step2Text:"Pekerja boleh kemas kini mata pelanggan dengan cepat.",
+step3Title:"Bos Hantar Promosi & Mata",
+step3Text:"Bos boleh hantar promosi WhatsApp dan notifikasi mata.",
 
-q4:"员工可以使用吗？",
+whyTitle:"Kenapa Pilih AIPOINT",
+whySub:"Direka khas untuk perniagaan kecil.",
+feature1Title:"Mudah & Cepat",
+feature1Text:"Senang digunakan oleh bos dan pekerja.",
+feature2Title:"Bayar Sekali Sahaja",
+feature2Text:"Tiada yuran bulanan.",
+feature3Title:"Tambah Jualan Ulangan",
+feature3Text:"Pelanggan kembali membeli lagi.",
+feature4Title:"Telefon & PC",
+feature4Text:"Boleh digunakan di mana sahaja.",
+feature5Title:"Jejak Pelanggan Mudah",
+feature5Text:"Semua rekod pelanggan tersusun.",
+feature6Title:"Penebusan Ganjaran",
+feature6Text:"Pelanggan boleh tebus hadiah.",
+feature7Title:"Promosi WhatsApp",
+feature7Text:"Hantar promosi kepada pelanggan.",
+feature8Title:"Data Milik Anda",
+feature8Text:"Semua data pelanggan milik perniagaan anda.",
 
-a4:"可以。员工可以帮顾客加分和查看顾客资料。",
+priceSmall:"Mampu Milik Untuk Perniagaan Kecil",
+tag1:"Bayar Sekali",
+tag2:"Guna Selamanya",
+tag3:"Tiada Yuran Bulanan",
+priceText:"Sistem loyalti yang murah dan mudah.",
+contactBtn:"Hubungi WhatsApp",
 
-q5:"需要 POS 系统吗？",
+industryTitle:"Sesuai Untuk",
+industrySub:"Sesuai untuk pelbagai jenis perniagaan.",
 
-a5:"不需要。AIPOINT 不需要昂贵 POS 系统。",
+faqTitle:"Soalan Lazim",
+faqSub:"Jawapan ringkas.",
+faq1Title:"Perlu install app?",
+faq1Text:"Tidak perlu.",
+faq2Title:"Mudah digunakan pekerja?",
+faq2Text:"Ya, sangat mudah.",
+faq3Title:"Ada yuran bulanan?",
+faq3Text:"Tiada.",
+faq4Title:"Boleh guna telefon?",
+faq4Text:"Ya, telefon dan komputer disokong.",
 
-q6:"手机可以用吗？",
-
-a6:"可以。手机、平板和电脑都能使用。",
-
-ctaTitle:"准备开始建立回头客了吗？",
-
-ctaText:"今天就开始使用 AIPOINT 提高顾客忠诚度。",
-
-ctaWhatsapp:"WhatsApp 询问",
-
-ctaDemo:"打开 Demo"
+ctaTitle:"Mulakan Loyalti Pelanggan Hari Ini",
+ctaText:"Gunakan AIPOINT untuk bina pelanggan tetap."
 
 }
 
@@ -1327,21 +628,16 @@ ctaDemo:"打开 Demo"
 
 function setLang(lang){
 
-document.querySelectorAll("[data-i18n]").forEach(el=>{
+document.querySelectorAll('.lang button').forEach(btn=>{
+btn.classList.remove('active');
+});
 
-const key = el.getAttribute("data-i18n");
+document.getElementById('btn-'+lang).classList.add('active');
 
-if(translations[lang][key]){
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key = el.getAttribute('data-i18n');
 el.innerHTML = translations[lang][key];
-}
-
 });
-
-document.querySelectorAll(".lang button").forEach(btn=>{
-btn.classList.remove("active");
-});
-
-document.getElementById("btn-"+lang).classList.add("active");
 
 }
 
